@@ -2,7 +2,6 @@ class Game
   def initialize
     @random_num = rand(101) + 1
     @guess_array = []
-    # @random_num = 25
   end
 
   def ask_for_number
