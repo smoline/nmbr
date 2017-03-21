@@ -4,18 +4,37 @@ def ask_for_number
   return answer
 end
 
+def duplicate_number_test(g_array)
+  i = 0
+  while i < (g_array.length - 1)
+    if g_array.last == g_array[i]
+      puts "You already used that number, are you even trying?"
+      break
+    else
+      i += 1
+    end
+  end
+end
+
 def guessing
   guess_count = 1
   guess = ask_for_number
   random_num = rand(101) + 1
+  # random_num = 25
+  guess_array = []
+  guess_array << guess
 
   while guess_count < 5
     if guess < random_num
       puts "Your guess is lower than my number."
       guess = ask_for_number
+      guess_array << guess
+      duplicate_number_test(guess_array)
     elsif guess > random_num
       puts "Your guess is higher than my number"
       guess = ask_for_number
+      guess_array << guess
+      duplicate_number_test(guess_array)
     else
       break
     end
